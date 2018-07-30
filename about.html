@@ -16,9 +16,8 @@
 
     <div class="container">
         <div class="banner text-center">
-            <h1 class="header-display">About "India's World Trade"</h1>
-            <p class="lead text-info"> An overview of India's world trade in the last
-                <b>10 years</b>, 2009 to 2018.</p>
+            <h1 class="header-display">About "India's World Trade - The Last Decade"</h1>
+            <p class="lead text-info"> An overview of the narrative visualisation</p>
             <span style="color: gray">By Karan Gupta
             </span>
         </div>
@@ -28,7 +27,7 @@
     <div class="container">
 
         <!-- TRADE BALANCE: World Map -->
-        <div class="text-center">
+        <div class="text-left">
             <h5>Did India maintain a
                 <b>Balance of Trade</b> with the different countries of the World?</h5>
             <p>Not with all! This world map shows India's 10 year trade balance for each country of the world.
@@ -41,115 +40,6 @@
             </div>
         </div>
 
-        <hr/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <!-- TIMLINE: Total Export/Import -->
-        <div class="text-center">
-            <h5>Has India's
-                <b>Annual Export/Import</b> varied in the last 10 years?</h5>
-            <p>Yes! In fact, it is interesting to note that the export and import amounts are highly correlated. </p>
-            <!-- D3 Line graph will come here -->
-            <div id="timeline-ie-all">
-                <svg width="900" height="450"></svg>
-            </div>
-        </div>
-
-        <hr/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
-        <!-- TIMLINE: Countries -->
-
-        <div class="text-center">
-            <h5> What if we split the annual time trend by
-                <b>Countries</b>?</h5>
-            <p>This graph shows top 20 countries based on total export/import across 10 years.
-                <br/> It is interesting to note that 'Unspecfied' country has shown up in top 10 of export.
-            </p>
-            <!-- D3 area graph with top 10 countries will come here. -->
-            <!-- Parameter: Import, Export-->
-            <div>
-                Type of trade:
-                <select id="select-timeline-ie-country">
-                    <option value="import">Import</option>
-                    <option value="export">Export</option>
-                </select>
-            </div>
-            <div id="timeline-ie-country">
-                <svg width="900" height="450"></svg>
-            </div>
-        </div>
-
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
-
-        <!-- TIMLINE: Commodities -->
-
-        <div class="text-center">
-            <h5> And what if we split the annual time trend by
-                <b>Commodities</b>?</h5>
-            <p>This graph shows top 20 commodities based on total export/import across 10 years.</p>
-            <!-- D3 area graph with top 10 commodities will come here. -->
-            <!-- Parameter: Import, Export-->
-            <div>
-                Type of trade:
-                <select id="select-timeline-ie-commodity">
-                    <option value="import">Import</option>
-                    <option value="export">Export</option>
-                </select>
-            </div>
-            <div id="timeline-ie-commodity">
-                <svg width="900" height="450"></svg>
-            </div>
-        </div>
-
-        <hr/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
-        <!-- TIMLINE: Commodities and Commodities -->
-
-        <div class="text-center">
-            <h5> What about a specific
-                <b>Country</b> and a specific
-                <b>Commodity</b>?</h5>
-            <p>Please feel free to explore! Select a country and a commodity to view a time trend of export and import values
-                over 10 years </p>
-            <!-- D3 line graph for exploration will come here -->
-            <!-- Parameter: Countries, Commodities-->
-            <div>
-                Country
-                <select id="select-martini-country">
-                </select>
-                &nbsp;&nbsp;&nbsp;&nbsp; Commodity
-                <select id="select-martini-commodity">
-                </select>
-            </div>
-            <div id="timeline-martini">
-                <svg width="900" height="450"></svg>
-            </div>
-        </div>
-
-    </div>
-    <hr/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
 
 
 
