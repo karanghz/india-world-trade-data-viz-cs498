@@ -2,9 +2,9 @@ function updateStackedAreaChart(div_name, graphType, trade_type) {
     var yAxisUpperBound = 550 * 1000; // We know the bounds of our data
 
     var csvFileList = {
-        import: "/data/timeline-i-" + graphType + ".csv",
-        export: "/data/timeline-e-" + graphType + ".csv",
-        total: "/data/timeline-ie-" + graphType + ".csv" // not used
+        import: "./data/timeline-i-" + graphType + ".csv",
+        export: "./data/timeline-e-" + graphType + ".csv",
+        total: "./data/timeline-ie-" + graphType + ".csv" // not used
     };
 
     var csvFile = csvFileList[trade_type];

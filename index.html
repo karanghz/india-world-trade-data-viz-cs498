@@ -30,12 +30,16 @@
 
         <!-- TRADE BALANCE: World Map -->
         <div class="text-center">
-            <h5>Did India maintain a
-                <b>Balance of Trade</b> with the different countries of the World?</h5>
-            <p>Not with all! This world map shows India's 10 year trade balance for each country of the world.
-                <br/> The countries coloured in
-                <span style="color:darkred">dark red</span>
-                are the ones from which India has imported a lot more than it has exported.</p>
+            <h5>Let us start by looking at India's
+                <b>Balance of Trade</b> with respect to each country</h5>
+            <p>This world map shows India's 10 year trade balance for each country in the world. The countries coloured in shades
+                of
+                <span style="color:darkred"> red</span>
+                are the ones from which India has imported a lot more than it has exported. On the other hand, there are many countries to
+                which India mostly exports goods.
+                <br/>
+                <span style="color:lightgray">Hover over a country to view it's 10 year import and export volume in million USD.</span>
+            </p>
             <!-- D3 choropeth will come here -->
             <div id="choropeth">
                 <svg width="1000" height="400"></svg>
@@ -49,9 +53,12 @@
         <br/>
         <!-- TIMLINE: Total Export/Import -->
         <div class="text-center">
-            <h5>Has India's
-                <b>Annual Export/Import</b> varied in the last 10 years?</h5>
-            <p>Yes! In fact, it is interesting to note that the export and import amounts are highly correlated. </p>
+            <h5>Now let's see how India's
+                <b>Annual Export/Import</b> volume has varied in the last 10 years</h5>
+            <p>
+                It is interesting to note that the export and import amounts are highly correlated. This can potentially act as a proxy for
+                the state of the global economy.
+            </p>
             <!-- D3 Line graph will come here -->
             <div id="timeline-ie-all">
                 <svg width="900" height="450"></svg>
@@ -159,8 +166,8 @@
 
 
     <!-- D3.JS version 4 -->
-    <script src="/d3/d3.v4.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="./d3/d3.v4.js"></script>
+    <script src="./d3/d3-scale-chromatic.v1.min.js"></script>
     <script src="color-palette.js"></script>
     <script src="graph-line.js"></script>
     <script src="graph-choropeth.js"></script>

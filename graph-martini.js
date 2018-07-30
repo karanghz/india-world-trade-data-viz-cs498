@@ -3,7 +3,7 @@ martiniDataset = [];
 
 // Function to update martini dropdowns: country, commodity
 var updateMartiniDropdown = function(type, codeField) {
-    d3.csv("/data/martini/martini-" + type + "-selection.csv", function(data) {
+    d3.csv("./data/martini/martini-" + type + "-selection.csv", function(data) {
         d3.select("#select-martini-" + type)
             .selectAll("option")
             .data(data)
@@ -28,7 +28,7 @@ updateMartiniDropdown("country", "ccode");
 
 // Update the martini chart with the selection
 function updateMartiniChart(div_name, country_code, commodity_code) {
-    var csvFile = "/data/martini/martini-dataset.csv";
+    var csvFile = "./data/martini/martini-dataset.csv";
     // Converts strings to numeric type
     var typeConvert = function(d) {
         d.year = +d.year;
