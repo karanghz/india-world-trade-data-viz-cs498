@@ -1,0 +1,10 @@
+{
+    "include": [
+        "main.js",
+        "d3/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
+}

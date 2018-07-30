@@ -1,0 +1,186 @@
+html {
+        font-family: sans-serif;
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        -ms-overflow-style: scrollbar;
+        -webkit-tap-highlight-color: transparent
+    }
+
+body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+        background-color: #fff
+}
+
+article,
+    footer,
+    header,
+    hgroup,
+    main,
+    nav,
+    section {
+        display: block
+    }
+
+.grid line {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+
+.grid path {
+    stroke-width: 0;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    font: 13px sans-serif;
+    background: #f2f7ff;
+    border: 2px;
+    border-color: black;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+path.line {
+    fill: none;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-width: 4;
+}
+
+.countries {
+    stroke:gray;
+    stroke-width: 1px;
+}
+
+
+.text-center {
+        text-align: center !important
+}
+
+.banner {
+        padding: 1rem 1rem;
+        margin-bottom: 2rem;
+        background-color: #e9ecef;
+        border-radius: .3rem
+}
+
+    @media (min-width:576px) {
+        .banner {
+            padding: 2rem 1rem
+        }
+}
+
+.header-display {
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 1.2
+}
+
+.lead {
+        font-size: 1.25rem;
+        font-weight: 300
+    }
+
+.text-info {
+        color: #17a2b8 !important
+    }
+
+    a.text-info:focus,
+    a.text-info:hover {
+        color: #117a8b !important
+    }
+
+ h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 0;
+        margin-bottom: .5rem
+    }
+
+.h5,
+    h5 {
+        font-size: 1.25rem
+    }
+
+.h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: .5rem;
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.2;
+        color: inherit
+    }
+
+*,
+    ::after,
+    ::before {
+        box-sizing: border-box
+    }
+
+hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, .1)
+    }
+
+.container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto
+}
+
+    @media (min-width:576px) {
+        .container {
+            max-width: 540px
+        }
+}
+
+    @media (min-width:768px) {
+        .container {
+            max-width: 720px
+        }
+}
+
+    @media (min-width:992px) {
+        .container {
+            max-width: 960px
+        }
+}
+
+    @media (min-width:1200px) {
+        .container {
+            max-width: 1140px
+        }
+}
+
+
+    
+
