@@ -1,5 +1,5 @@
 function updateTradeBalanceChart(div_name) {
-    var csvFile = "./data/trade-balance-final.csv";
+    var csvFile = "data/trade-balance-final.csv";
 
     var svg = d3.select(div_name).select("svg");
 

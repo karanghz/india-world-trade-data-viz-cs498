@@ -1,5 +1,5 @@
 function updateLineChart(div_name, outsideData, useLogScale) {
-    var csvFile = "./data/timeline-ie-all.csv";
+    var csvFile = "data/timeline-ie-all.csv";
 
     var svg = d3.select(div_name).select("svg");
     svg.selectAll("svg > *").remove(); // cleans up SVG

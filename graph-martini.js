@@ -3,7 +3,7 @@ martiniDataset = [];
 
 // Function to update martini dropdowns: country, commodity
 var updateMartiniDropdown = function(type, codeField) {
-    d3.csv("./data/martini/martini-" + type + "-selection.csv", function(data) {
+    d3.csv("data/martini/martini-" + type + "-selection.csv", function(data) {
         d3.select("#select-martini-" + type)
             .selectAll("option")
             .data(data)
