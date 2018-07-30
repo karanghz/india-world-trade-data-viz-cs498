@@ -22,7 +22,7 @@ function updateTradeBalanceChart(div_name) {
     d3.queue()
         .defer(
             d3.json,
-            "http://enjalot.github.io/wwsd/data/world/world-110m.geojson"
+            "https://enjalot.github.io/wwsd/data/world/world-110m.geojson"
         )
         .defer(d3.csv, csvFile, function(d) {
             data_trade_balance[d.country_code] = {
