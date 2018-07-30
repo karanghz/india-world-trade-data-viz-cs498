@@ -20,10 +20,7 @@ function updateTradeBalanceChart(div_name) {
 
     // Load external data and boot
     d3.queue()
-        .defer(
-            d3.json,
-            "https://enjalot.github.io/wwsd/data/world/world-110m.geojson"
-        )
+        .defer(d3.json, "data/world-110m.geojson")
         .defer(d3.csv, csvFile, function(d) {
             data_trade_balance[d.country_code] = {
                 balance: +d.trade_balance, // Negative implies more import
