@@ -42,7 +42,7 @@ function updateLineChart(div_name, outsideData, useLogScale) {
             }) * 1.05;
     }
 
-    var yScale = yScale.rangeRound([height, 0]).domain([0.01, domainMax]); // We know the bounds of our data
+    var yScale = yScale.rangeRound([height, 0]).domain([0, domainMax]); // We know the bounds of our data
 
     // Define the initial line generator
     // This is used for animation
