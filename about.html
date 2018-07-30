@@ -26,19 +26,434 @@
 
     <div class="container">
 
-        <!-- TRADE BALANCE: World Map -->
-        <div class="text-left">
-            <h5>Did India maintain a
-                <b>Balance of Trade</b> with the different countries of the World?</h5>
-            <p>Not with all! This world map shows India's 10 year trade balance for each country of the world.
-                <br/> The countries coloured in
-                <span style="color:darkred">dark red</span>
-                are the ones from which India has imported a lot more than it has exported.</p>
-            <!-- D3 choropeth will come here -->
-            <div id="choropeth">
-                <svg width="1000" height="400"></svg>
-            </div>
+        <div>
+            <span style="font-weight: bold;">The Goal</span>
         </div>
+        <div>In this narrative visualisation I have visualised India’s trade (export/import) with the rest of the world for the
+            past 10 years. This visualisation aims to achieve three goals:</div>
+        <ol>
+            <li>
+                <div>To throw light on the export/import balance across countries.</div>
+            </li>
+            <li>
+                <div>To provide an insight into export/import trend for the past decade.</div>
+            </li>
+            <li>
+                <div>To let the user explore the dataset across countries, commodities and years.</div>
+            </li>
+        </ol>
+        <div>
+            <br/>
+        </div>
+        <div>To achieve these goals, I have used a
+            <span style="font-weight: bold;">Martini Glass </span>hybrid structure. This structure will allow me to present some key insights at the start
+            and then let the user explore the vast dataset across three dimensions. </div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <span style="font-weight: bold;">Dataset </span>
+        </div>
+        <div>This dataset is a subset of the import/export data available at the official website of the Ministry of Commerce
+            and Industry (Government of India):
+            <a href="http://commerce-app.gov.in/eidb/default.asp">http://commerce-app.gov.in/eidb/default.asp</a>. The site provides data for every commodity imported and exported
+            by India from every country in the world. </div>
+        <div>
+            <br/>
+        </div>
+        <div>I prepared this dataset as follows:</div>
+        <ul>
+            <li>
+                <div>For the financial years 2008-09 to 2017-18, I downloaded the dataset for every commodity imported/exported
+                    by India for each country. The data was downloaded using an R script. The dataset of each country contained
+                    the following columns:
+                </div>
+            </li>
+            <ul>
+                <li>
+                    <div>Commodity Name</div>
+                </li>
+                <li>
+                    <div>Import value in million $</div>
+                </li>
+                <li>
+                    <div>Export value in million $</div>
+                </li>
+            </ul>
+            <li>
+                <div>I used an R script to stitch together the data for each country into a single dataset, which had the following
+                    columns:
+                </div>
+            </li>
+            <ul>
+                <li>
+                    <div>Country</div>
+                </li>
+                <li>
+                    <div>Commodity Name</div>
+                </li>
+                <li>
+                    <div>Import value in million $</div>
+                </li>
+                <li>
+                    <div>Export value in million $</div>
+                </li>
+                <li>
+                    <div>The above dataset formed my main ‘Data Cube’</div>
+                </li>
+            </ul>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>I used additional R scripts to query and summarise the 'Data Cube' for various graphs of the narrative visualisation.
+            This was done to make sure the graphs load as fast as possible. </div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <span style="font-weight: bold;">Scenes</span>
+        </div>
+        <div>The visualisation has a total of five scenes:</div>
+        <ol>
+            <li>
+                <div>[Choropleth] Trade Balance with respect to each country</div>
+            </li>
+            <li>
+                <div>[Line chart] Annual Export/Import trend</div>
+            </li>
+            <li>
+                <div>[Area Chart] Annual Export/Import trend, split by country</div>
+            </li>
+            <li>
+                <div>[Area Chart] Annual Export/Import trend, split by commodity</div>
+            </li>
+            <li>
+                <div>[Line Chart] Annual Export/Import trend, by country and commodity</div>
+            </li>
+        </ol>
+        <div>
+            <br/>
+        </div>
+        <div>The scenes appear in a linear order by simply scrolling the window. The height of each scene is adjusted such that
+            the user can view almost one complete scene at a time. </div>
+        <div>
+            <br/>
+        </div>
+        <div>Since it was about India's world trade, I saw it fitting to have a world map (implemented as a choropleth) as my
+            first scene. More information about this chart is provided at the end of this document. This first scene differs
+            drastically from the rest of the scenes, which are all time trends over a decade. This was intentional as I wanted
+            to
+        </div>
+        <ul>
+            <li>
+                <div>first provide a high level summary of the entire decade before diving into the annual time trends.</div>
+            </li>
+            <li>
+                <div>make sure proper visual context of the world is set in the mind of the user. In other words, I wanted to
+                    make sure countries are not just names. </div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>The scenes that come after the first one have a similar layout and structure:</div>
+        <ul>
+            <li>
+                <div>Y axis is trade volume (continuous)</div>
+            </li>
+            <li>
+                <div>X axis is year (continuous)</div>
+            </li>
+            <li>
+                <div>The legend is on the right hand side</div>
+            </li>
+            <li>
+                <div>Tooltips for detail on demand</div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>This ensures that the transition is as smooth as possible between the scenes. </div>
+        <div>
+            <br/>
+        </div>
+        <div>The last scene is a special one, which allows the user to visualise an import and export time trend for any combination
+            of country and commodity. This scene is where the user can explore the
+            <span style="text-decoration: underline;">entire dataset</span> on which this visualisation is based.</div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <span style="font-weight: bold;">Annotations</span>
+        </div>
+        <div>Annotations have been provided in two ways:</div>
+        <ul>
+            <li>
+                <div>Brief text on top of each chart</div>
+            </li>
+            <li>
+                <div>Text annotations within the chart</div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>The text annotations within the choropleth (scene #1) have been used to indicate countries from which India mostly
+            only imports.
+        </div>
+        <div>The text annotations within the annual import/export trend chart (scene #2) have been provided to give some context
+            of the various important events that occurred in the last decade and that may have impacted India's global trade. </div>
+        <div>
+            <br/>
+        </div>
+        <div>The rest of the scenes don't have text annotations within the chart. Also, the annotation are never cleared from
+            the charts.
+        </div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <span style="font-weight: bold;">Parameters</span>
+        </div>
+        <div>The narrative visualisation has following parameters: </div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <span style="text-decoration: underline;">Trade Type</span>
+        </div>
+        <div>This parameter is present on the following scenes:</div>
+        <ul>
+            <li>
+                <div>[Scene #3] [Area Chart] Annual Export/Import trend, split by country</div>
+            </li>
+            <li>
+                <div>[Scene #4] [Area Chart] Annual Export/Import trend, split by commodity</div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>Possible Values</div>
+        <ul>
+            <li>
+                <div>Export</div>
+            </li>
+            <li>
+                <div>Import</div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>The parameters allows the user to switch between a stacked area chart of export values and import values. </div>
+        <div>(Note that the said parameter on each of the above scenes is independent of each other. )</div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <span style="text-decoration: underline;">Country and </span>
+            <span style="text-decoration: underline;">Commodity</span>
+        </div>
+        <div>These parameters are present only in the following scene:</div>
+        <div>[Scene #5 ][Line Chart] Annual Export/Import trend, by country and commodity</div>
+        <div>
+            <br/>
+        </div>
+        <div>Possible values of country parameters: A list of all countries in the dataset</div>
+        <div>Possible values of commodity parameters: A list of all commodities in the dataset</div>
+        <div>
+            <br/>
+        </div>
+        <div>These parameters together allow the user to view an annual trend of export &amp; import values for any combination
+            of country and commodity. </div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <span style="text-decoration: underline;">Scroll Offset</span>
+        </div>
+        <div>This is an implicit parameter which tiggers initialisation animations on the following scenes:</div>
+        <ul>
+            <li>
+                <div>[Scene #2 ][Line chart] Annual Export/Import trend</div>
+            </li>
+            <li>
+                <div>[Scene #3 ][Area Chart] Annual Export/Import trend, split by country</div>
+            </li>
+            <li>
+                <div>[Scene #4 ][Area Chart] Annual Export/Import trend, split by commodity</div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>When a user scrolls to one of the above scenes, for the first time, the scenes are rendered in an animated way. </div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <span style="font-weight: bold;">Triggers</span>
+        </div>
+        <div>The narrative visualisation utilises the following triggers</div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <u>Page Load</u>
+        </div>
+        <ul>
+            <li>
+                <div>The choropleth (scene #1) is rendered when the page loads. This also involves a CSV data fetch in the background
+                    <br/>
+                </div>
+            </li>
+            <li>
+                <div>Additionally, the exploration scene (scene #5) is also rendered in the background. This also involves a CSV
+                    data fetch in the background</div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <u>On Change of Trade Type Selector (Scene #3/#4)</u>
+        </div>
+        <ul>
+            <li>
+                <div>This triggers the update of the respective chart with stacked area chart of either export values or import
+                    values.
+                </div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <span style="text-decoration: underline;">On Change of Country Selector (Scene #5)</span>
+        </div>
+        <ul>
+            <li>
+                <div>Triggers the update of the scene #5 chart.</div>
+            </li>
+            <li>
+                <div>The trigger passed the current value of the 'Country' and 'Commodity' parameter</div>
+            </li>
+        </ul>
+        <div>
+            <u>
+                <br/>
+            </u>
+        </div>
+        <div>
+            <u>On Change of Commodity Selector (Scene #5)</u>
+        </div>
+        <ul>
+            <li>
+                <div>Triggers the update of the scene #5 chart.</div>
+            </li>
+            <li>
+                <div>The trigger passed the current value of the 'Country' and 'Commodity' parameter</div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <u>Scroll to Scene #2 / #3 / #4</u>
+        </div>
+        <ul>
+            <li>
+                <div>Triggered when a user scrolls to scene #2, #3 or #4</div>
+            </li>
+            <li>
+                <div>Triggers the rendering of the respective chart. </div>
+            </li>
+            <li>
+                <div>Rendering happens exactly once, till the page is reloaded. </div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <hr/>
+        <div>
+            <b>A Note About The Balance of Trade Chart (Scene #1)</b>
+        </div>
+        <div>The aim of the chart is to indicate India’s balance of trade - export vs import - with respect to each country in
+            the world.
+            <br/>
+        </div>
+        <div>
+            <br/>
+        </div>
+        <div>To do that I created new computed field called ‘import_vs_export’, which is derived for each country as follows:
+        </div>
+        <div>import_vs_export = ((export/(export + import)) - 0.5)*2 </div>
+        <div>
+            <br/>
+        </div>
+        <div>Here are some properties of the ‘import_vs_export' field, with respect to each country:</div>
+        <ul>
+            <li>
+                <div>import_vs_export is -1 if India only imports from this country</div>
+            </li>
+            <li>
+                <div>import_vs_export is 0 if India imports/exports equally from this country.</div>
+            </li>
+            <li>
+                <div>import_vs_export is -1 if India only exports to this country.</div>
+            </li>
+        </ul>
+        <div>(Note that above properties are just indicative - import_vs_export is a continuous field and can have any number
+            between -1 and 1. )</div>
+        <div>
+            <br/>
+        </div>
+        <div>I then mapped a diverging colour scale, red-yellow-green, to the ‘import_vs_export’ field to provide a visual idea
+            of the trade balance with each country. Thus, if the colour of the country is a dark green, we can infer that
+            India mostly exports to that country and if it is dark red, India mostly imports from that country. And if a
+            country has a yellow hue, it indicates that there is a balance of trade with that country. For example, we can
+            observe that India exports more stuff to the US than it imports from the US. </div>
+        <div>
+            <br/>
+        </div>
+        <div>I chose a map as a glyph to highlight that India trades with almost all regions of the world. Additionally, it is
+            interesting to note that even within the same continent, the import/export balance varies a lot across countries.</div>
+        <div>
+            <br/>
+        </div>
+        <div>To make this chart more useful and informative, the tooltip of each country also provides the following information:</div>
+        <ul>
+            <li>
+                <div>Total import value (million $)</div>
+            </li>
+            <li>
+                <div>Total export value (million $)</div>
+            </li>
+        </ul>
+        <div>
+            <br/>
+        </div>
+        <div>Of course, since this chart focuses on the balance of trade, it does not provide any insight into the actual magnitude
+            of the trade. </div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <u>
+                <br/>
+            </u>
+        </div>
+        <div>
+            <br/>
+        </div>
+    </div>
 
 
 
